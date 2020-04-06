@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    order-footer
   </div>
 </template>
 
