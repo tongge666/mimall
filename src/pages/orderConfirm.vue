@@ -5,8 +5,20 @@
 </template>
 
 <script>
+import storage from "../storage";
 export default {
-    name:'order-confirm'
+    name:'order-confirm',
+    data(){
+      return{
+        
+      }
+    },
+    mounted(){
+      storage.setItem('a',1);
+    },
+    methods:{
+      
+    }
 }
 </script>
 

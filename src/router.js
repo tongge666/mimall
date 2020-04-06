@@ -19,7 +19,7 @@ export default new Router({
         path: '/',
         name: 'home',
         component: Home,
-        redirect: "/index",
+        redirect: "/index", //重定向
         children: [{
                 //静态路由
                 path: '/index',
