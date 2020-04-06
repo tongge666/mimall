@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import storage from "../storage";
 export default {
     name:'order-confirm',
     data(){
@@ -14,7 +13,7 @@ export default {
       }
     },
     mounted(){
-      storage.setItem('a',1);
+      
     },
     methods:{
       
