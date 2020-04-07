@@ -241,6 +241,7 @@ export default {
             box-shadow: 0px 7px 6px 0px rgba(0,0,0,0.11);
             z-index: 10;
             transition: height 500ms;
+            background-color: #ffffff;
           }
           .product{
             float: left;
