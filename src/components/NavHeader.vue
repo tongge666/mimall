@@ -240,7 +240,7 @@ export default {
             border-top: 1px solid #E5E5E5;
             box-shadow: 0px 7px 6px 0px rgba(0,0,0,0.11);
             z-index: 10;
-            transition: height 1s;
+            transition: height 500ms;
           }
           .product{
             float: left;
