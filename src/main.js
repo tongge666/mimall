@@ -2,16 +2,15 @@ import Vue from 'vue'
 import './plugins/axios'
 import router from './router'
 import axios from 'axios'
-// import vueAxios from 'vue-axios'
 
 import App from './App.vue'
-import env from './env.js'
+// import env from './env.js'
 
 
 //最大响应时间
 axios.defaults.timeout = 8000
     //根据不同环境变量获取不同请求地址
-axios.defaults.baseUrl = env.baseUrl
+    // axios.defaults.baseUrl = '/api'
     //错误接口拦截
 axios.interceptors.response.use(function(response) {
     let res = response.data;
@@ -26,7 +25,6 @@ axios.interceptors.response.use(function(response) {
 
 Vue.config.productionTip = false
 Vue.prototype.$ajax = axios;
-// Vue.use(vueAxios, axios)
 
 new Vue({
     router,
