@@ -6,7 +6,6 @@ import axios from 'axios'
 import App from './App.vue'
 // import env from './env.js'
 
-
 //最大响应时间
 axios.defaults.timeout = 8000
     //根据不同环境变量获取不同请求地址
