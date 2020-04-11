@@ -62,42 +62,50 @@
         </a>
       </div>
     </div>
-     <div class="product-box">
-        <div class="container">
-          <h2>手机</h2>
-          <div class="wrapper">
-            <div class="banner-left">
-              <a href="/#/product/35">
-                <img src="/imgs/mix-alpha.jpg" alt />
-              </a>
-            </div>
-            <div class="list-box">
-              <div class="list" v-for="(arr,index) in phoneList" :key="index">
-                <div class="item" v-for="(item,index2) in arr" :key="index2">
-                  <span :class="{'new-pro':index2%2==0}">新品</span>
-                  <div class="item-img">
-                    <img
-                      :src="item.mainImage"
-                      alt
-                    />
-                  </div>
-                  <div class="item-info">
-                    <h3>{{item.name}}</h3>
-                    <p>{{item.subtitle}}</p>
-                    <p class="price">{{item.price}}元</p>
-                  </div>
+    <div class="product-box">
+      <div class="container">
+        <h2>手机</h2>
+        <div class="wrapper">
+          <div class="banner-left">
+            <a href="/#/product/35">
+              <img src="/imgs/mix-alpha.jpg" alt />
+            </a>
+          </div>
+          <div class="list-box">
+            <div class="list" v-for="(arr,index) in phoneList" :key="index">
+              <div class="item" v-for="(item,index2) in arr" :key="index2">
+                <span :class="{'new-pro':index2%2==0}">新品</span>
+                <div class="item-img">
+                  <img :src="item.mainImage" alt />
+                </div>
+                <div class="item-info">
+                  <h3>{{item.name}}</h3>
+                  <p>{{item.subtitle}}</p>
+                  <p class="price">{{item.price}}元</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     <service-bar></service-bar>
+    <Modal
+      title="提示"
+      sureText="查看购物车"
+      btnType="1"
+      modalType="middle"
+      :showModal="showModal">
+      <template v-slot:body>
+        <p>商品添加成功!</p>
+      </template>  
+    </Modal>
   </div>
 </template>
 
 <script>
 import ServiceBar from "../components/ServiceBar";
+import Modal from "../components/Modal";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
 export default {
@@ -105,7 +113,8 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
-    ServiceBar
+    ServiceBar,
+    Modal
   },
   data() {
     return {
@@ -201,20 +210,23 @@ export default {
           img: "/imgs/ads/ads-4.jpg"
         }
       ],
-      phoneList: []
+      phoneList: [],
+      showModal:false
     };
   },
-  methods:{
-    init(){
-      this.$axios.get('/api/products',{
-        params:{
-          categoryId:100012,
-          pageSize:14
-        }
-      }).then((res)=>{
-        res.list = res.data.data.list.slice(6,14);
-        this.phoneList = [res.list.slice(0,4),res.list.slice(4,8)];
-      })
+  methods: {
+    init() {
+      this.$axios
+        .get("/api/products", {
+          params: {
+            categoryId: 100012,
+            pageSize: 14
+          }
+        })
+        .then(res => {
+          res.list = res.data.data.list.slice(6, 14);
+          this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)];
+        });
     }
   },
   computed: {},
@@ -332,7 +344,7 @@ export default {
     .wrapper {
       display: flex;
       .banner-left {
-        margin-right : 16px;
+        margin-right: 16px;
         img {
           width: 224px;
           height: 619px;
@@ -358,10 +370,10 @@ export default {
               font-size: 14px;
               line-height: 24px;
               color: $colorG;
-              &.new-pro{
-                background-color: #7ECF68;
+              &.new-pro {
+                background-color: #7ecf68;
               }
-              &.kill-pro{
+              &.kill-pro {
                 background-color: red;
               }
             }
