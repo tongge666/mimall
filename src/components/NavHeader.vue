@@ -40,7 +40,7 @@
             </div>
           </div>
           <div class="item-menu">
-            <span>红米RedMi</span>
+            <span>RedMi红米</span>
           </div>
           <div class="item-menu">
             <span>电视</span>
@@ -239,7 +239,7 @@ export default {
             width: 1226px;
             border-top: 1px solid #E5E5E5;
             box-shadow: 0px 7px 6px 0px rgba(0,0,0,0.11);
-            z-index: 10;
+            z-index: 11;
             transition: height 500ms;
             background-color: #ffffff;
           }
