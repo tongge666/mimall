@@ -10,7 +10,7 @@
       <a href="javascript:;" target="_blank">码云首页</a><span>|</span>
       <a href="javascript:;" target="_blank">高德后台管理系统</a>
     </div>
-    <div class="copyright">Copyright ©2019 <span class="domain">mi.futurefe.com</span> All Rights Reserved.</div>
+    <div class="copyright">Copyright ©2020 <span class="domain">gitee.com/tongge666</span> All Rights Reserved.</div>
   </div>
 </template>
 <script>
