@@ -1,12 +1,16 @@
 <template>
   <div>
-
+    <product-param title="小米手机"></product-param>
   </div>
 </template>
 
 <script>
+import ProductParam from './../components/ProductParams'
 export default {
-    name:'product'
+    name:'product',
+    components:{
+      ProductParam
+    }
 }
 </script>
 

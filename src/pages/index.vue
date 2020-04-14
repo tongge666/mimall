@@ -227,7 +227,7 @@ export default {
           }
         })
         .then(res => {
-          res.list = res.data.data.list.slice(6, 14);
+          res.list = res.list.slice(6, 14);
           this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)];
         });
     },

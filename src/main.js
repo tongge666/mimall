@@ -3,34 +3,23 @@ import './plugins/axios'
 import router from './router'
 import axios from 'axios'
 import VueLazyLoad from 'vue-lazyload'
+import cookie from 'vue-cookie'
+
 
 import App from './App.vue'
+import store from './store'
 // import env from './env.js'
-
-//最大响应时间
-axios.defaults.timeout = 8000
-    //根据不同环境变量获取不同请求地址
-    // axios.defaults.baseUrl = '/api'
-    //错误接口拦截
-axios.interceptors.response.use(function(response) {
-    let res = response.data;
-    if (res.status == 0) {
-        return res.data
-    } else if (res.status == 10) {
-        window.location.href = '/#/login'
-    } else {
-        alert(res.msg)
-    }
-})
 
 Vue.use(VueLazyLoad, {
     loading: '/imgs/loading-svg/loading-bars.svg'
 })
 
 Vue.config.productionTip = false
+Vue.prototype.$cookie = cookie;
 Vue.prototype.$ajax = axios;
 
 new Vue({
     router,
-    render: h => h(App),
+    store,
+    render: h => h(App)
 }).$mount('#app')

@@ -10,10 +10,10 @@
         </div>
         <div class="topbar-user">
           <a href="javascript:;" v-if="username">{{username}}</a>
-          <a href="javascript:;" v-if="!username" >登陆</a>
+          <a href="javascript:;" v-if="!username" @click="login">登陆</a>
           <a href="javascript:;" v-if="username">我的订单</a>
           <a href="javascript:;" @click="goToCart" class="my-cart">
-            <span class="icon-cart"></span>购物车
+            <span class="icon-cart"></span>购物车({{cartCount}})
           </a>
         </div>
       </div>
@@ -114,8 +114,15 @@ export default {
   name: "nav-header",
   data(){
     return{
-      phoneList:[],
-      username:''
+      phoneList:[]
+    }
+  },
+  computed:{
+    username(){
+      return this.$store.state.username
+    },
+    cartCount(){
+      return this.$store.state.cartCount
     }
   },
   filters:{
@@ -136,7 +143,7 @@ export default {
           pageSize:6
         }
       }).then((res=>{
-        that.phoneList = res.data.data.list
+        that.phoneList = res.list
       }))
     },
     goToCart(){
@@ -171,6 +178,7 @@ export default {
         background: #ff6600;
         text-align: center;
         color: #ffffff;
+        margin-right: 0;
       }
       .icon-cart {
         @include bgImg(16px,12px,"/imgs/icon-cart-checked.png");

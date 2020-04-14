@@ -10,62 +10,69 @@ import OrderConfirm from './pages/orderConfirm.vue'
 import OrderPay from './pages/orderPay.vue'
 import OrderList from './pages/orderList.vue'
 import AliPay from './pages/aliPay.vue'
+import Login from './pages/login.vue'
 
 
 Vue.use(Router)
 
 export default new Router({
     routes: [{
-        path: '/',
-        name: 'home',
-        component: Home,
-        redirect: "/index", //重定向
-        children: [{
-                //静态路由
-                path: '/index',
-                name: 'index',
-                component: Index,
-            },
-            {
-                // 动态路由
-                path: '/product/:id',
-                name: 'product',
-                component: Product,
-            },
-            {
-                path: '/detail/:id',
-                name: 'detail',
-                component: Detail
-            }
-        ]
-    }, {
-        path: '/cart',
-        name: 'cart',
-        component: Cart
-    }, {
-        path: '/order',
-        name: 'order',
-        component: Order,
-        children: [{
-                path: 'confirm',
-                name: 'order-confirm',
-                component: OrderConfirm,
-            },
-            {
-                path: 'pay',
-                name: 'order-pay',
-                component: OrderPay,
-            },
-            {
-                path: 'list',
-                name: 'orde-list',
-                component: OrderList
-            },
-            {
-                path: 'alipay',
-                name: 'ali-pay',
-                component: AliPay
-            }
-        ]
-    }]
+            path: '/',
+            name: 'home',
+            component: Home,
+            redirect: "/index", //重定向
+            children: [{
+                    //静态路由
+                    path: '/index',
+                    name: 'index',
+                    component: Index,
+                },
+                {
+                    // 动态路由
+                    path: '/product/:id',
+                    name: 'product',
+                    component: Product,
+                },
+                {
+                    path: '/detail/:id',
+                    name: 'detail',
+                    component: Detail
+                }
+            ]
+        }, {
+            path: '/login',
+            name: 'login',
+            component: Login
+        },
+        {
+            path: '/cart',
+            name: 'cart',
+            component: Cart
+        }, {
+            path: '/order',
+            name: 'order',
+            component: Order,
+            children: [{
+                    path: 'confirm',
+                    name: 'order-confirm',
+                    component: OrderConfirm,
+                },
+                {
+                    path: 'pay',
+                    name: 'order-pay',
+                    component: OrderPay,
+                },
+                {
+                    path: 'list',
+                    name: 'orde-list',
+                    component: OrderList
+                },
+                {
+                    path: 'alipay',
+                    name: 'ali-pay',
+                    component: AliPay
+                }
+            ]
+        }
+    ]
 })
