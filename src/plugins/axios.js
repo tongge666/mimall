@@ -30,18 +30,22 @@ _axios.interceptors.request.use(
 // Add a response interceptor
 _axios.interceptors.response.use(
     function(response) {
-        let path = location.hash;
         let res = response.data;
         if (res.status == 0) {
-            return res.data
+            return res.data;
         } else if (res.status == 10) {
-            if (path != '#/index') {
-                window.location.href = '/#/login';
-            }
+            window.location.href = '/#/login';
+            return Promise.reject(res);
         } else {
             alert(res.msg);
+            // Message.warning(res.msg);
             return Promise.reject(res);
         }
+    }, (error) => {
+        let res = error.response;
+        alert(res.data.message);
+        // Message.error(res.data.message);
+        return Promise.reject(error);
     }
     // function(response) {
     //     // Do something with response data
