@@ -191,31 +191,6 @@ export default {
       position: relative;
       height: 112px;
       @include flex();
-      .header-logo {
-        display: inline-block;
-        width: 55px;
-        height: 55px;
-        background-color: #ff6600;
-        a {
-          display: inline-block;
-          width: 110px;
-          height: 55px;
-          &:before {
-            content: " ";
-            display: inline-block;
-            @include bgImg(55px,55px,"/imgs/mi-logo.png");
-            transition: margin-left 200ms;
-          }
-          &:after {
-            content: " ";
-            display: inline-block;
-            @include bgImg(55px,55px,"/imgs/mi-home.png");
-          }
-          &:hover:before {
-            margin-left: -55px;
-          }
-        }
-      }
       .header-menu {
         width: 643px;
         display: inline-block;
