@@ -9,17 +9,19 @@ export default {
   name: "App",
   components: {},
   mounted() {
-    this.getUser();
-    this.getCartCount();
-  },
+    if (this.$cookie.get("userId")) {
+      this.getUser();
+      this.getCartCount();
+    }
+  }, 
   methods: {
     getUser() {
-      this.axios.get("/api/user").then((res) => {
-        this.$store.dispatch('saveUserName',res.username);
+      this.axios.get("/api/user").then(res => {
+        this.$store.dispatch("saveUserName", res.username);
       });
     },
     getCartCount() {
-      this.axios.get("/api/carts/products/sum").then((res) => {
+      this.axios.get("/api/carts/products/sum").then(res => {
         this.$store.dispatch("saveCartCount", res);
       });
     }

@@ -2,6 +2,7 @@
 
 import Vue from 'vue';
 import axios from "axios";
+import { Message } from 'element-ui'
 
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
@@ -37,14 +38,12 @@ _axios.interceptors.response.use(
             window.location.href = '/#/login';
             return Promise.reject(res);
         } else {
-            alert(res.msg);
-            // Message.warning(res.msg);
+            Message.warning(res.msg);
             return Promise.reject(res);
         }
     }, (error) => {
         let res = error.response;
-        alert(res.data.message);
-        // Message.error(res.data.message);
+        Message.error(res.data.message);
         return Promise.reject(error);
     }
     // function(response) {

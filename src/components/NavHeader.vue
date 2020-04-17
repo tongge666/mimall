@@ -12,6 +12,7 @@
           <a href="javascript:;" v-if="username">{{username}}</a>
           <a href="javascript:;" v-if="!username" @click="login">登陆</a>
           <a href="javascript:;" v-if="username">我的订单</a>
+          <a href="javascript:;" v-if="username" @click="logout">退出</a>
           <a href="javascript:;" @click="goToCart" class="my-cart">
             <span class="icon-cart"></span>购物车({{cartCount}})
           </a>
@@ -146,12 +147,30 @@ export default {
         that.phoneList = res.list
       }))
     },
+    getCartCount() {
+      this.axios.get("/api/carts/products/sum").then((res) => {
+        this.$store.dispatch("saveCartCount", res);
+      });
+    },
+    logout(){
+      let that = this;
+      this.$axios.post('/api/user/logout').then(()=>{
+        that.$message.success("退出成功");
+        this.$cookie.set('userId','',{expires:'-1'});
+        this.$store.dispatch('saveUserName','');
+        this.$store.dispatch('saceCartCount','0');
+      })
+    },
     goToCart(){
       this.$router.push('/cart');
     }
   },
   mounted(){
     this.getProductList();
+    let params = this.$route.params;
+    if(params && params.from == "login"){
+      this.getCartCount();
+    }
   }
 };
 </script>
