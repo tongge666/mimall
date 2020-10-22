@@ -13,7 +13,7 @@ export default {
       this.getUser();
       this.getCartCount();
     }
-  }, 
+  },
   methods: {
     getUser() {
       this.axios.get("/api/user").then(res => {
