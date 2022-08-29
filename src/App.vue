@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    我是新加的11111
+    我是小江江
     <router-view></router-view>
   </div>
 </template>
