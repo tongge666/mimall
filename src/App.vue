@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    123213
+    我是新加的11111
     <router-view></router-view>
   </div>
 </template>
