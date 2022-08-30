@@ -1,6 +1,17 @@
 <template>
   <div id="app">
-    我是小江江
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
     <router-view></router-view>
   </div>
 </template>
