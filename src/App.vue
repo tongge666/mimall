@@ -1,17 +1,6 @@
 <template>
   <div id="app">
-    <p>123</p>
-    <p>123</p>
-    <p>123</p>
-    <p>123</p>
-    <p>123</p>
-    <p>123</p>
-    <p>123</p>
-    <p>123</p>
-    <p>123</p>
-    <p>123</p>
-    <p>123</p>
-    <p>123</p>
+    123
     <router-view></router-view>
   </div>
 </template>

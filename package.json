@@ -7,7 +7,13 @@
     "build": "vue-cli-service build --mode=production",
     "lint": "vue-cli-service lint",
     "prev": "vue-cli-service serve --mode=prev",
-    "test": "vue-cli-service serve --mode=test"
+    "test": "vue-cli-service serve --mode=test",
+    "commit": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   },
   "dependencies": {
     "babel-plugin-component": "^1.1.1",
@@ -30,6 +36,8 @@
     "axios": "^0.18.0",
     "babel-eslint": "^10.1.0",
     "babel-plugin-component": "^1.1.1",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
     "element-ui": "^2.13.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
